@@ -1,0 +1,12 @@
+FROM apache/spark:3.5.0-scala2.12-java11-python3-r-ubuntu
+USER root
+RUN useradd jovyan
+RUN adduser jovyan root
+WORKDIR /opt/spark/
+COPY spark-defaults.conf /opt/spark/conf/
+COPY aws-java-sdk-bundle-1.12.276.jar /opt/spark/jars/
+COPY hadoop-aws-3.3.4.jar /opt/spark/jars/
+COPY bcpkix-jdk18on-1.78.jar /opt/spark/jars/
+COPY bcprov-jdk18on-1.78.jar /opt/spark/jars/
+
+
