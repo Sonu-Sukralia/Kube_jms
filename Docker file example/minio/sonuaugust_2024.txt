@@ -1,0 +1,716 @@
+    1  sudo nmtui
+    2  sudo nano /boot/firmware/cmdline.txt
+    3  sudo reboot
+    4  sduo apt update
+    5  sudo apt update
+    6  sudo apt upgrade
+    7  ls
+    8  sudo curl -sSL https://get.docker.com | sh
+    9  sudo apt update
+   10  sudo apt upgrade
+   11  sudo dpkg --configure -a
+   12  sudo apt upgrade
+   13  sudo usermod -aG docker pi
+   14  sudo curl -sSL https://get.docker.com | sh
+   15  sudo usermod -aG docker pi
+   16  sudo reboot now
+   17  sudo apt install docker-compose
+   18  curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644
+   19  mkdir ~/.kube
+   20  sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config && sudo chown $USER ~/.kube/config
+   21  sudo chmod 600 ~/.kube/config && export KUBECONFIG=~/.kube/config
+   22  sudo systemctl restart k3s
+   23  sudp reboot
+   24  sudo reboot now
+   25  sudo apt update
+   26  sudo apt install snapd
+   27  sudo reboot 
+   28  sudo snap install snapd
+   29  k9s
+   30  sudo reboot
+   31  k9s
+   32  mkdir ~/k9s-installation
+   33  cd ~/k9s-installation
+   34  curl -LO https://github.com/derailed/k9s/releases/download/v0.32.5/k9s_Linux_amd64.tar.gz
+   35  tar xf k9s_Linux_amd64.tar.gz
+   36  sudo mv k9s /usr/local/bin
+   37  k9s
+   38  sudo reboot now
+   39  k9s
+   40  sudo apt update
+   41  sudo apt install -y qemu-user-static binfmt-support
+   42  sudo dpkg --add-architecture amd64
+   43  sudo apt update
+   44  sudo apt install libc6:amd64
+   45  sudo reboot
+   46  mkdir ~/.kube
+   47  sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config && sudo chown $USER ~/.kube/config
+   48  sudo chmod 600 ~/.kube/config && export KUBECONFIG=~/.kube/config
+   49  k9s
+   50  history > his_k9s.txt
+   51  sudo cat /var/lib/rancher/k3s/server/node-token
+   52  sudo reboot now
+   53  k9s
+   54  kubectl get nodes
+   55  k9s
+   56  kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
+   57  sudo nano admin.yaml
+   58  sudo nano dashboard.yaml
+   59  sudo nano secret.yaml
+   60  kubectl apply -f admin.yaml 
+   61  kubectl apply -f dashboard.yaml 
+   62  kubectl apply -f secret.yaml 
+   63  helm repo add apache-airflow https://airflow.apache.org
+   64  curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
+   65  sudo apt-get install apt-transport-https --yes
+   66  echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+   67  sudo apt-get update
+   68  sudo apt-get install helm
+   69  helm repo add apache-airflow https://airflow.apache.org
+   70  helm install airflow apache-airflow/airflow --namespace airflow --create-namespace --debug
+   71  k9s
+   72  helm delete airflow --namespace airflow
+   73  helm install airflow apache-airflow/airflow --namespace airflow --create-namespace --debug
+   74  sudo apt update
+   75  sudo apt upgrade
+   76  sudo reboot now
+   77  python3 -m venv airdags
+   78  kubectl port-forward svc/airflow-webserver 8080:8080 --namespace airflow
+   79  code .
+   80  kubectl get pods
+   81  kubectl get node
+   82  echo Fernet Key: $(kubectl get secret --namespace airflow airflow-fernet-key -o jsonpath="{.data.fernet-key}" | base64 --decode)
+   83  kubectl proxy
+   84  k9s
+   85  /bin/python /home/pi/.vscode/extensions/ms-python.python-2024.12.1-linux-arm64/python_files/printEnvVariablesToFile.py /home/pi/.vscode/extensions/ms-python.python-2024.12.1-linux-arm64/python_files/deactivate/bash/envVars.txt
+   86  source ./bin/activate
+   87  ls
+   88  helm upgrade --install airflow apache-airflow/airflow --namespace airflow --create-namespace -f values.yaml
+   89  git init
+   90  pip install apache-airflow
+   91  pip uminstall apache-airflow
+   92  pip uninstall apache-airflow
+   93  git init
+   94  git commit -m "first commit"
+   95  git config --global user.email "sonukr023@gmail.com"
+   96  git commit -m "first commit"
+   97  git add dags/
+   98  git commit -m "first commit"
+   99  git branch -M main
+  100  git remote add origin https://github.com/Sonu-Sukralia/airdags.git
+  101  git push -u origin main
+  102  git add dags/
+  103  git commit -m "first commits"
+  104  git remote add origin https://github.com/Sonu-Sukralia/airdags.git
+  105  git push -u origin main
+  106  helm upgrade --install airflow apache-airflow/airflow --namespace airflow --create-namespace -f values.yaml
+  107  git add dags/
+  108  git commit -m "sec"
+  109  git push -u origin main
+  110  git add dags/
+  111  git commit -m "secn"
+  112  git add dags/
+  113  git commit -m "secn dag"
+  114  git add dags/
+  115  git commit -m "secn dags"
+  116  git push -u origin main
+  117  git add dags/
+  118  git commit -m "secn dagsds"
+  119  git push -u origin main
+  120  docker ps -a
+  121  python3 -m venv spark
+  122  code .
+  123  deactivate
+  124  source ./bin/activate
+  125  /bin/python /home/pi/.vscode/extensions/ms-python.python-2024.12.1-linux-arm64/python_files/printEnvVariablesToFile.py /home/pi/.vscode/extensions/ms-python.python-2024.12.1-linux-arm64/python_files/deactivate/bash/envVars.txt
+  126  git add dags/
+  127  git commit -m "secn dagss"
+  128  git push -u origin main
+  129  git add dags/
+  130  git commit -m "secn dagsjk"
+  131  git push -u origin main
+  132  /bin/python /home/pi/.vscode/extensions/ms-python.python-2024.12.1-linux-arm64/python_files/printEnvVariablesToFile.py /home/pi/.vscode/extensions/ms-python.python-2024.12.1-linux-arm64/python_files/deactivate/bash/envVars.txt
+  133  code .
+  134  kubectl get pods -n airflow
+  135  kubectl exec -it airflow-webserver-544f7485d5-cs4sp --bash
+  136  kubectl exec -it airflow-webserver-544f7485d5-cs4sp -- bash
+  137  kubectl exec -it -n airflow airflow-webserver-544f7485d5-cs4sp -- bash
+  138  ls
+  139  cd
+  140  ls
+  141  cd ~
+  142  ls
+  143  cd scr/
+  144  ls
+  145  cat values.yaml
+  146  cd ..
+  147  helm show values apache-airflow.airflow  > values1.yaml
+  148  ls
+  149  helm show values apache-airflow/airflow  > values1.yaml
+  150  ls
+  151  cd
+  152  kubectl exec -it -n airflow airflow-webserver-544f7485d5-cs4sp -- bash
+  153  cd ~
+  154  ls
+  155  cd scr
+  156  pico values.yaml 
+  157  ls
+  158  helm delete airflow -n airflow
+  159  pico values.yaml 
+  160  helm install airflow apache-airflow/airflow --namespace airflow --create-namespace --debug -f values.yaml
+  161  kubectl exec -it -n airflow airflow-webserver-544f7485d5-cs4sp -- bash
+  162  kubectl get pods -n airflow
+  163  kubectl exec -it -n airflow airflow-webserver-6cb97ffdbf-jxpkh -- bash
+  164  kubectl exec -it -n airflow airflow-webserver-6cb97ffdbf-jxpkh -c webserver -- bash
+  165  kubectl port-forward svc/airflow-webserver 8080:8080 --namespace airflow
+  166  kubectl get secret admin-user -n kubernetes-dashboard -o jsonpath={".data.token"} | base64 -d
+  167  ls
+  168  kubectl apply -f spark_minio.yaml
+  169  kubectl delete -f spark_minio.yaml 
+  170  kubectl apply -f spark_minio.yaml
+  171  kubectl delete -f spark_minio.yaml 
+  172  kubectl apply -f spark_minio.yaml
+  173  kubectl delete -f spark_minio.yaml 
+  174  kubectl apply -f spark_minio.yaml
+  175  kubectl delete -f spark_minio.yaml 
+  176  kubectl apply -f spark_minio.yaml
+  177  docker login
+  178  docker build -t sonusukralia/spark:1.0 .
+  179  docker images
+  180  kubectl delete -f spark_minio.yaml 
+  181  docker images
+  182  docker pull --platform linux/arm64 apache/spark:python3-java17
+  183  docker imags
+  184  docker images
+  185  docker rmi ef2127bc80e8
+  186  docker images
+  187  docker build -t sonusukralia/spark:1.0 .
+  188  docker images
+  189  docker rmi 8960e25ba15f
+  190  docker build -t sonusukralia/spark:1.0 .
+  191  docker images
+  192  docker rmi 367d72ea525f
+  193  docker build -t sonusukralia/spark:1.0 .
+  194  docker images
+  195  docker push sonusukralia/spark:1.0
+  196  kubectl apply -f spark_minio.yaml
+  197  docker build -t sonusukralia/spark:1.0 .
+  198  docker push sonusukralia/spark:1.0
+  199  docker build -t sonusukralia/spark:1.0 .
+  200  docker push sonusukralia/spark:1.0
+  201  kubectl delete -f spark_minio.yaml 
+  202  kubectl apply -f spark_minio.yaml
+  203  docker build -t sonusukralia/spark:1.0 .
+  204  docker push sonusukralia/spark:1.0
+  205  kubectl delete -f spark_minio.yaml 
+  206  kubectl apply -f spark_minio.yaml
+  207  docker build -t sonusukralia/spark:1.0 .
+  208  docker push sonusukralia/spark:1.0
+  209  kubectl delete -f spark_minio.yaml 
+  210  kubectl apply -f spark_minio.yaml
+  211  docker build -t sonusukralia/spark:1.0 .
+  212  docker push sonusukralia/spark:1.0
+  213  kubectl delete -f spark_minio.yaml 
+  214  kubectl apply -f spark_minio.yaml
+  215  kubectl delete -f spark_minio.yaml 
+  216  kubectl apply -f spark_minio.yaml
+  217  kubectl delete -f spark_minio.yaml 
+  218  docker build -t sonusukralia/spark:1.0 .
+  219  docker push sonusukralia/spark:1.0
+  220  kubectl apply -f spark_minio.yaml
+  221  docker build -t sonusukralia/spark:1.0 .
+  222  docker push sonusukralia/spark:1.0
+  223  docker images
+  224  docker rmi b7d220254f20
+  225  docker rmi 70fc6a27ac4a
+  226  docker rmi -f $(docker images -f "dangling=true" -q)
+  227  docker image
+  228  docker images
+  229  kubectl apply -f spark_minio.yaml
+  230  kubectl delete -f spark_minio.yaml
+  231  kubectl apply -f spark_minio.yaml
+  232  docker build -t sonusukralia/spark:1.0 .
+  233  docker push sonusukralia/spark:1.0
+  234  kubectl delete -f spark_minio.yaml
+  235  kubectl apply -f spark_minio.yaml
+  236  kubectl delete -f spark_minio.yaml
+  237  kubectl apply -f spark_minio.yaml
+  238  docker build -t sonusukralia/spark:1.0 .
+  239  docker push sonusukralia/spark:1.0
+  240  kubectl delete -f spark_minio.yaml
+  241  kubectl apply -f spark_minio.yaml
+  242  kubectl delete -f spark_minio.yaml
+  243  docker build -t sonusukralia/spark:1.0 .
+  244  docker push sonusukralia/spark:1.0
+  245  kubectl apply -f spark_minio.yaml
+  246  kubectl delete -f spark_minio.yaml
+  247  kubectl apply -f spark_minio.yaml
+  248  kubectl delete -f spark_minio.yaml
+  249  kubectl apply -f spark_minio.yaml
+  250  docker build -t sonusukralia/spark:1.0 .
+  251  docker push sonusukralia/spark:1.0
+  252  kubectl delete -f spark_minio.yaml
+  253  kubectl apply -f spark_minio.yaml
+  254  docker build -t sonusukralia/spark:1.0 .
+  255  docker push sonusukralia/spark:1.0
+  256  kubectl delete -f spark_minio.yaml
+  257  kubectl apply -f spark_minio.yaml
+  258  docker build -t sonusukralia/spark:1.0 .
+  259  docker push sonusukralia/spark:1.0
+  260  kubectl delete -f spark_minio.yaml
+  261  kubectl apply -f spark_minio.yaml
+  262  docker build -t sonusukralia/spark:1.0 .
+  263  docker push sonusukralia/spark:1.0
+  264  kubectl delete -f spark_minio.yaml
+  265  kubectl apply -f spark_minio.yaml
+  266  docker build -t sonusukralia/spark:1.0 .
+  267  docker push sonusukralia/spark:1.0
+  268  kubectl delete -f spark_minio.yaml
+  269  kubectl apply -f spark_minio.yaml
+  270  kubectl delete -f spark_minio.yaml
+  271  docker build -t sonusukralia/spark:1.0 .
+  272  docker push sonusukralia/spark:1.0
+  273  kubectl apply -f spark_minio.yaml
+  274  docker build -t sonusukralia/spark:1.0 .
+  275  docker push sonusukralia/spark:1.0
+  276  kubectl delete -f spark_minio.yaml
+  277  kubectl apply -f spark_minio.yaml
+  278  docker build -t sonusukralia/spark:1.0 .
+  279  docker push sonusukralia/spark:1.0
+  280  kubectl delete -f spark_minio.yaml
+  281  kubectl apply -f spark_minio.yaml
+  282  kubectl delete -f spark_minio.yaml
+  283  kubectl apply -f spark_minio.yaml
+  284  docker build -t sonusukralia/spark:1.0 .
+  285  docker push sonusukralia/spark:1.0
+  286  kubectl delete -f spark_minio.yaml
+  287  kubectl apply -f spark_minio.yaml
+  288  docker build -t sonusukralia/spark:1.0 .
+  289  docker push sonusukralia/spark:1.0
+  290  kubectl delete -f spark_minio.yaml
+  291  kubectl apply -f spark_minio.yaml
+  292  kubectl delete -f spark_minio.yaml
+  293  docker build -t sonusukralia/spark:1.0 .
+  294  docker push sonusukralia/spark:1.0
+  295  kubectl delete -f spark_minio.yaml
+  296  kubectl apply -f spark_minio.yaml
+  297  docker build -t sonusukralia/spark:1.0 .
+  298  docker push sonusukralia/spark:1.0
+  299  kubectl delete -f spark_minio.yaml
+  300  kubectl apply -f spark_minio.yaml
+  301  kubectl delete -f spark_minio.yaml
+  302  docker build -t sonusukralia/spark:1.0 .
+  303  docker push sonusukralia/spark:1.0
+  304  kubectl delete -f spark_minio.yaml
+  305  kubectl apply -f spark_minio.yaml
+  306  docker build -t sonusukralia/spark:1.0 .
+  307  docker push sonusukralia/spark:1.0
+  308  kubectl delete -f spark_minio.yaml
+  309  kubectl apply -f spark_minio.yaml
+  310  docker build -t sonusukralia/spark:1.0 .
+  311  docker push sonusukralia/spark:1.0
+  312  kubectl delete -f spark_minio.yaml
+  313  kubectl apply -f spark_minio.yaml
+  314  kubectl delete -f spark_minio.yaml
+  315  docker build -t sonusukralia/spark:1.0 .
+  316  docker push sonusukralia/spark:1.0
+  317  kubectl delete -f spark_minio.yaml
+  318  kubectl apply -f spark_minio.yaml
+  319  docker build -t sonusukralia/spark:1.0 .
+  320  kubectl delete -f spark_minio.yaml
+  321  docker push sonusukralia/spark:1.0
+  322  kubectl apply -f spark_minio.yaml
+  323  docker build -t sonusukralia/spark:1.0 .
+  324  docker rmi -f $(docker images -f "dangling=true" -q
+  325  )
+  326  docker images
+  327  docker push sonusukralia/spark:1.0
+  328  kubectl delete -f spark_minio.yaml
+  329  kubectl apply -f spark_minio.yaml
+  330  code .
+  331  kubectl get svc -n minio
+  332  kubectl get namespaces
+  333  kubectl get svc -n minio-operator
+  334  kubectl get svc -n minio-operator -o wide
+  335  kubectl get svc -n s3a -o wide
+  336  kubectl create secret generic minio-secret --from-literal=AWS_ACCESS_KEY_ID=hsEfEUIK19N4KYgvw1lx --from-literal=AWS_SECRET_ACCESS_KEY=T21pYUJ07SOLJBlh89tgKviHRfYDgh55C76I0dke --from-literal=ENDPOINT=https://192.168.29.126:9443 \                                                                                               --from-literal=AWS_REGION=us-east-1 --namespace spark-operator
+  337  kubectl create secret generic minio-secret --from-literal=AWS_ACCESS_KEY_ID=hsEfEUIK19N4KYgvw1lx --from-literal=AWS_SECRET_ACCESS_KEY=T21pYUJ07SOLJBlh89tgKviHRfYDgh55C76I0dke --from-literal=ENDPOINT=https://192.168.29.126:9443 --from-literal=AWS_REGION=us-east-1 --namespace spark-operator
+  338  kubectl get pods -n spark-operator
+  339  kubectl logs spark-operator-fb4f4bb5d-hb2sf -n spark-opetator
+  340  kubectl logs spark-operator-fb4f4bb5d-hb2sf -n spark-operator
+  341  docker images
+  342  kubectl 
+  343  kubectl port-forward svc/s3a-hl 8080:8080 --namespace s3a
+  344  kubectl port-forward svc/s3a-console 9092:9090 --namespace s3a
+  345  kubectl port-forward svc/s3a-hl -n s3a 9000:9000
+  346  kubectl get nodes
+  347  docker ps
+  348  k9s
+  349  kubectl apply -k "github.com/minio/operator?ref=v6.0.1"
+  350  kubectl get pods -n minio-operator
+  351  k9s
+  352  kubectl port-forward svc/console -n minio-operator 9090:9090
+  353  ubectl apply -f - <<EOF
+  354  apiVersion: v1
+  355  kind: Secret
+  356  metadata:
+  357    name: console-sa-secret
+  358    namespace: minio-operator
+  359    annotations:
+  360      kubernetes.io/service-account.name: console-sa
+  361  type: kubernetes.io/service-account-token
+  362  EOF
+  363  SA_TOKEN=$(kubectl -n minio-operator  get secret console-sa-secret -o jsonpath="{.data.token}" | base64 --decode)
+  364  echo $SA_TOKEN
+  365  kubectl get all -n minio-operator
+  366  kubectl port-forward svc/console -n minio-operator 9090:9090
+  367  k9s
+  368  nano main.py
+  369  k9s
+  370  ls
+  371  k9s
+  372  helm remove airflow
+  373  helm uninstall airflow
+  374  helm uninstall airflow -n airflow
+  375  k9s
+  376  pwd
+  377  curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "awscliv2.zip"
+  378  unzip awscliv2.zip
+  379  ls
+  380  ./aws/install
+  381  sudo ./aws/install
+  382  aws --version
+  383  aws configure
+  384  aws s3 ls --endpoint http://localhost:9000 
+  385  aws s3a ls --endpoint http://localhost:9000 
+  386  aws s3 ls --endpoint http://localhost:9000 s3://tast/test
+  387  aws s3 ls --endpoint http://localhost:9000 s3://tast/test/*
+  388  aws s3 ls --endpoint http://localhost:9000 s3://tast/test
+  389  aws s3 ls --endpoint http://localhost:9000 s3://tast/test/
+  390  kubectl port-forward svc/console -n minio-operator 9090:9090
+  391  kubectl apply -f - <<EOF
+  392  apiVersion: v1
+  393  kind: Secret
+  394  metadata:
+  395    name: console-sa-secret
+  396    namespace: minio-operator
+  397    annotations:
+  398      kubernetes.io/service-account.name: console-sa
+  399  type: kubernetes.io/service-account-token
+  400  EOF
+  401  SA_TOKEN=$(kubectl -n minio-operator  get secret console-sa-secret -o jsonpath="{.data.token}" | base64 --decode)
+  402  echo $SA_TOKEN
+  403  kubectl port-forward svc/console -n minio-operator 9090:9090
+  404  SA_TOKEN=$(kubectl -n minio-operator  get secret console-sa-secret -o jsonpath="{.data.token}" | base64 --decode)
+  405  echo $SA_TOKEN
+  406  kubectl apply -k "github.com/minio/operator?ref=v5.0.15"
+  407  kubectl get pods -n minio-operator
+  408  k9s
+  409  kubectl get pods -n minio-operator
+  410  kubectl get all -n minio-operator
+  411  kubectl apply -f - <<EOF
+  412  apiVersion: v1
+  413  kind: Secret
+  414  metadata:
+  415    name: console-sa-secret
+  416    namespace: minio-operator
+  417    annotations:
+  418      kubernetes.io/service-account.name: console-sa
+  419  type: kubernetes.io/service-account-token
+  420  EOF
+  421  SA_TOKEN=$(kubectl -n minio-operator  get secret console-sa-secret -o jsonpath="{.data.token}" | base64 --decode)
+  422  echo $SA_TOKEN
+  423  kubectl port-forward svc/console -n minio-operator 9090:9090
+  424  code .
+  425  kubectl get namespaces
+  426  kubectl get pods -n spark-jobs -w
+  427  kubectl get pods -n spark-jobs -o wide -w
+  428  kubectl logs spark-minio-driver -n spark-jobs
+  429  kubectl get namespaces
+  430  kubectl get pods -n spark-jobs -o wide -w
+  431  kubectl logs spark-minio-driver -n spark-jobs
+  432  kubectl logs spark-minio-driver -n spark-jobs -w
+  433  kubectl logs spark-minio-driver -n spark-jobs
+  434  kubectl get pods -n spark-jobs -o wide -w
+  435  kubectl get services -n s3a
+  436  kubectl get pods -n spark-jobs -o wide -w
+  437  kubectl logs spark-minio-driver -n spark-jobs
+  438  kubectl get pods -n spark-jobs -o wide -w
+  439  kubectl logs spark-minio-driver -n spark-jobs
+  440  kubectl get pods -n spark-jobs -o wide -w
+  441  kubectl logs spark-minio-driver -n spark-jobs
+  442  kubectl get pods -n spark-jobs -o wide -w
+  443  kubectl logs spark-minio-driver -n spark-jobs
+  444  kubectl get pods -n spark-jobs -o wide -w
+  445  kubectl logs spark-minio-driver -n spark-jobs
+  446  kubectl get pods -n spark-jobs -o wide -w
+  447  kubectl logs spark-minio-driver -n spark-jobs
+  448  kubectl get pods -n spark-jobs -o wide -w
+  449  kubectl logs spark-minio-driver -n spark-jobs
+  450  kubectl get pods -n spark-jobs -o wide -w
+  451  kubectl logs spark-minio-driver -n spark-jobs
+  452  kubectl get pods -n spark-jobs -o wide -w
+  453  kubectl logs spark-minio-driver -n spark-jobs
+  454  kubectl get pods -n spark-jobs -o wide -w
+  455  kubectl logs spark-minio-driver -n spark-jobs
+  456  kubectl get pods -n spark-jobs -o wide -w
+  457  kubectl logs spark-minio-driver -n spark-jobs
+  458  kubectl get pods -n spark-jobs -o wide -w
+  459  kubectl delete pod/spark-minio-driver
+  460  kubectl delete pod/spark-minio-driver -n spark-jobs
+  461  kubectl get pods -n spark-jobs -o wide -w
+  462  kubectl logs spark-minio-driver -n spark-jobs
+  463  kubectl get pods -n spark-jobs -o wide -w
+  464  kubectl logs spark-minio-driver -n spark-jobs
+  465  kubectl get pods -n spark-jobs -o wide -w
+  466  kubectl logs spark-minio-driver -n spark-jobs
+  467  kubectl get pods -n spark-jobs -o wide -w
+  468  kubectl logs spark-minio-driver -n spark-jobs
+  469  kubectl get pods -n spark-jobs -o wide -w
+  470  kubectl logs spark-minio-driver -n spark-jobs
+  471  kubectl get pods -n spark-jobs -o wide -w
+  472  kubectl logs spark-minio-driver -n spark-jobs
+  473  kubectl get pods -n spark-jobs -o wide -w
+  474  kubectl logs spark-minio-driver -n spark-jobs
+  475  kubectl get pods -n spark-jobs -o wide -w
+  476  kubectl logs spark-minio-driver -n spark-jobs
+  477  kubectl get pods -n spark-jobs -o wide -w
+  478  kubectl logs spark-minio-driver -n spark-jobs
+  479  kubectl get pods -n spark-jobs -o wide -w
+  480  kubectl logs spark-minio-driver -n spark-jobs
+  481  kubectl get pods -n spark-jobs -o wide -w
+  482  kubectl logs spark-minio-driver -n spark-jobs
+  483  kubectl get pods -n spark-jobs -o wide -w
+  484  kubectl logs spark-minio-driver -n spark-jobs
+  485  kubectl get pods -n spark-jobs -o wide -w
+  486  kubectl logs spark-minio-driver -n spark-jobs
+  487  kubectl get pods -n spark-jobs -o wide -w
+  488  kubectl logs spark-minio-driver -n spark-jobs
+  489  kubectl get pods -n spark-jobs -o wide -w
+  490  kubectl logs spark-minio-driver -n spark-jobs
+  491  kubectl get pods -n spark-jobs -o wide -w
+  492  kubectl logs spark-minio-driver -n spark-jobs
+  493  kubectl get pods -n spark-jobs -o wide -w
+  494  kubectl logs spark-minio-driver -n spark-jobs
+  495  kubectl get pods -n spark-jobs -o wide -w
+  496  kubectl logs spark-minio-driver -n spark-jobs
+  497  kubectl get pods -n spark-jobs -o wide -w
+  498  kubectl logs spark-minio-driver -n spark-jobs
+  499  kubectl get pods -n spark-jobs -o wide -w
+  500  kubectl logs spark-minio-driver -n spark-jobs
+  501  kubectl get pods -n spark-jobs -o wide -w
+  502  kubectl logs spark-minio-driver -n spark-jobs
+  503  kubectl get pods -n spark-jobs -o wide -w
+  504  kubectl logs spark-minio-driver -n spark-jobs
+  505  kubectl get pods -n spark-jobs -o wide -w
+  506  kubectl logs spark-minio-driver -n spark-jobs
+  507  kubectl get pods -n spark-jobs -o wide -w
+  508  kubectl logs spark-minio-driver -n spark-jobs
+  509  kubectl get pods -n spark-jobs -o wide -w
+  510  kubectl logs spark-minio-driver -n spark-jobs
+  511  kubectl get pods -n spark-jobs -o wide -w
+  512  kubectl logs spark-minio-driver -n spark-jobs
+  513  kubectl get pods -n spark-jobs -o wide -w
+  514  kubectl logs spark-minio-driver -n spark-jobs
+  515  kubectl get pods -n spark-jobs -o wide -w
+  516  kubectl logs spark-minio-driver -n spark-jobs
+  517  kubectl get pods -n spark-jobs -o wide -w
+  518  kubectl logs spark-minio-driver -n spark-jobs
+  519  kubectl get pods -n spark-jobs -o wide -w
+  520  kubectl logs spark-minio-driver -n spark-jobs
+  521  kubectl get pods -n spark-jobs -o wide -w
+  522  kubectl logs spark-minio-driver -n spark-jobs
+  523  pico taxidata.csv 
+  524  ls
+  525  cp taxidatasample.csv taxidata.csv 
+  526  kubectl get svc -n spark-jobs
+  527  kubectl get svc -n s3a
+  528  kubectl get svc -n s3a -o wide
+  529  kubectl delete secret minio-secret -n spark-jobs
+  530  kubectl delete secret minio-secret -n s3a
+  531  kubectl delete secret minio-secret -n spark-operator
+  532  kubectl create secret generic minio-secret --from-literal=AWS_ACCESS_KEY_ID=hsEfEUIK19N4KYgvw1lx --from-literal=AWS_SECRET_ACCESS_KEY=T21pYUJ07SOLJBlh89tgKviHRfYDgh55C76I0dke --from-literal=ENDPOINT=http://s3a-hl:9000 --from-literal=AWS_REGION=us-east-1 --namespace spark-operator
+  533  kubectl get secret admin-user -n kubernetes-dashboard -o jsonpath={".data.token"} | base64 -d
+  534  kubectl proxy
+  535  kubectl delete secret minio-secret -n spark-operator
+  536  kubectl create secret generic minio-secret --from-literal=AWS_ACCESS_KEY_ID=hsEfEUIK19N4KYgvw1lx --from-literal=AWS_SECRET_ACCESS_KEY=T21pYUJ07SOLJBlh89tgKviHRfYDgh55C76I0dke --from-literal=ENDPOINT=https://s3a-hl.s3a:9000 --from-literal=AWS_REGION=us-east-1 --namespace spark-operator
+  537  kubectl delete secret minio-secret -n spark-operator
+  538  kubectl create secret generic minio-secret --from-literal=AWS_ACCESS_KEY_ID=hsEfEUIK19N4KYgvw1lx --from-literal=AWS_SECRET_ACCESS_KEY=T21pYUJ07SOLJBlh89tgKviHRfYDgh55C76I0dke --from-literal=ENDPOINT=http://s3a-hl.s3a:9000 --from-literal=AWS_REGION=us-east-1 --namespace spark-operator
+  539  kubectl proxy
+  540  code .
+  541  k9s
+  542  tar -xvf spark-3.5.1-bin-hadoop3.tgz 
+  543  ls
+  544  cd spark-3.5.1-bin-hadoop3/
+  545  ls
+  546  cd bin
+  547  ls
+  548  spark-submit
+  549  ./spark-submit
+  550  java -version
+  551  apt install openjdk-jdk
+  552  sudo apt install openjdk-jdk
+  553  sudo apt install openjdk-jdk-17
+  554  sudo apt-get install openjdk-8-jdk
+  555  sudo apt-get install openjdk-8-jre
+  556  cd
+  557  ls
+  558  java --version
+  559  pico ~/.bashrc
+  560  where is java
+  561  whereis java
+  562  cd /usr/share/java
+  563  l
+  564  ls
+  565  /usr/bin/java --version
+  566  cd /opt/
+  567  ls
+  568  cd ..
+  569  cd /usr/local/
+  570  ls
+  571  cd lib
+  572  ls
+  573  cd ..
+  574  cd lib
+  575  ls
+  576  cd jvm/
+  577  ls
+  578  cd java-17-openjdk-arm64/
+  579  ls
+  580  pico ~/.bashrc
+  581  kubectl get pods -n s3a
+  582  kubectl get svc -n s3a
+  583  kubectl cluster-info
+  584  kubectl get svc -n s3a
+  585  kubectl get secret admin-user -n kubernetes-dashboard -o jsonpath={".data.token"} | base64 -d
+  586  cd spark-3.5.1-bin-hadoop3/
+  587  ls
+  588  cd bin
+  589  ls
+  590  clear
+  591  ./spark-submit --deploy-mode cluster --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark --conf spark.kubernetes.container.image.pullPolicy=Always --conf spark.hadoop.fs.s3a.path.style.access=True --conf spark.hadoop.fs.s3a.access.key=WKpCKYo5nx3n9hnUzlYs --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.hadoop.fs.s3a.secret.key=BAyGGngWAu9zGytn6W0HR4seOoX5GDVQ1v3T83c1 --conf spark.hadoop.fs.s3a.path.style.access=True --conf spark.hadoop.fs.s3a.connection.ssl.enabled=False --conf spark.hadoop.fs.s3a.endpoint=http://s3a-hl.s3a:9000 --conf spark.kubernetes.container.image=arunsrajan/spark:3.5.1 --conf spark.master=k8s://https://127.0.0.1:6443 local:///app/main.py
+  592  kubectl cluster-info
+  593  ./spark-submit --deploy-mode cluster --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark --conf spark.kubernetes.container.image.pullPolicy=Always --conf spark.hadoop.fs.s3a.path.style.access=True --conf spark.hadoop.fs.s3a.access.key=WKpCKYo5nx3n9hnUzlYs --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.hadoop.fs.s3a.secret.key=BAyGGngWAu9zGytn6W0HR4seOoX5GDVQ1v3T83c1 --conf spark.hadoop.fs.s3a.path.style.access=True --conf spark.hadoop.fs.s3a.connection.ssl.enabled=False --conf spark.hadoop.fs.s3a.endpoint=http://s3a-hl.s3a:9000 --conf spark.kubernetes.container.image=arunsrajan/spark:3.5.1 --conf spark.master=k8s://https://127.0.0.1:6443 local:///app/main.py
+  594  export SPARK_HOME=/home/pi/spark-3.5.1-bin-hadoop3
+  595  ./spark-submit --deploy-mode cluster --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark --conf spark.kubernetes.container.image.pullPolicy=Always --conf spark.hadoop.fs.s3a.path.style.access=True --conf spark.hadoop.fs.s3a.access.key=WKpCKYo5nx3n9hnUzlYs --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.hadoop.fs.s3a.secret.key=BAyGGngWAu9zGytn6W0HR4seOoX5GDVQ1v3T83c1 --conf spark.hadoop.fs.s3a.path.style.access=True --conf spark.hadoop.fs.s3a.connection.ssl.enabled=False --conf spark.hadoop.fs.s3a.endpoint=http://s3a-hl.s3a:9000 --conf spark.kubernetes.container.image=arunsrajan/spark:3.5.1 --conf spark.master=k8s://https://127.0.0.1:6443 local:///app/main.py
+  596  sudo su
+  597  pico ~/.kube/config
+  598  kubectl cluster-info
+  599  pico ~/.kube/config
+  600  sudo su
+  601  pico /etc/rancher/k3s/k3s.yaml
+  602  cd
+  603  mkdir .kube
+  604  cd .kube
+  605  ls
+  606  vi config 
+  607  cd
+  608  cd spark-3.5.1-bin-hadoop3/
+  609  cd bin
+  610  ls
+  611  ./spark-submit --deploy-mode cluster --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark --conf spark.kubernetes.container.image.pullPolicy=Always --conf spark.hadoop.fs.s3a.path.style.access=True --conf spark.hadoop.fs.s3a.access.key=WKpCKYo5nx3n9hnUzlYs --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.hadoop.fs.s3a.secret.key=BAyGGngWAu9zGytn6W0HR4seOoX5GDVQ1v3T83c1 --conf spark.hadoop.fs.s3a.path.style.access=True --conf spark.hadoop.fs.s3a.connection.ssl.enabled=False --conf spark.hadoop.fs.s3a.endpoint=http://s3a-hl.s3a:9000 --conf spark.kubernetes.container.image=arunsrajan/spark:3.5.1 --conf spark.master=k8s://https://127.0.0.1:6443 local:///app/main.py
+  612  exit
+  613  /home/pi/env/bin/python
+  614  /bin/python /home/pi/.vscode/extensions/ms-python.python-2024.12.2-linux-arm64/python_files/printEnvVariablesToFile.py /home/pi/.vscode/extensions/ms-python.python-2024.12.2-linux-arm64/python_files/deactivate/bash/envVars.txt
+  615  kubectl port-forward svc/console -n minio-operator 9090:9090
+  616  helm unstall minio-operator
+  617  helm unintall minio-operator
+  618  helm unistall minio-operator
+  619  helm uninstall minio-operator
+  620  helm uninstall minio-operator -n minio-operator
+  621  helm delete  minio-operator -n minio-operator
+  622  helm delete  minio-operator namespace minio-operator
+  623  helm delete  namespace minio-operator
+  624  kubectl delete secret minio-secret -n spark-operator
+  625  kubectl create secret generic minio-secret --from-literal=AWS_ACCESS_KEY_ID=hsEfEUIK19N4KYgvw1lx --from-literal=AWS_SECRET_ACCESS_KEY=T21pYUJ07SOLJBlh89tgKviHRfYDgh55C76I0dke --from-literal=ENDPOINT=http://s3a-hl.s3a:9000 --from-literal=AWS_REGION=us-east-1 --namespace spark-operator
+  626  helm uninstall minio-operator -n minio-operator
+  627  kubectl delete namespace minio-operator
+  628  kubectl s3a namespace s3a
+  629  kubectl delete s3a namespace s3a
+  630  kubectl delete namespace s3a
+  631  kubectl delete namespace spark-jobs
+  632  helm install minio --set accessKey=myaccesskey, secretKey=mysecretkey minio/minio
+  633  kubectl apply -k "github.com/minio/operator?ref=v5.0.15"
+  634  kubectl apply -f - <<EOF
+  635  apiVersion: v1
+  636  kind: Secret
+  637  metadata:
+  638    name: console-sa-secret
+  639    namespace: minio-operator
+  640    annotations:
+  641      kubernetes.io/service-account.name: console-sa
+  642  type: kubernetes.io/service-account-token
+  643  EOF
+  644  SA_TOKEN=$(kubectl -n minio-operator  get secret console-sa-secret -o jsonpath="{.data.token}" | base64 --decode)
+  645  echo $SA_TOKEN
+  646  sudo apt install openjdk-17-jdk
+  647  sudo reboot now
+  648  java -version
+  649  cd spark-3.5.1-bin-hadoop3/
+  650  ls
+  651  cd bin
+  652  ls
+  653  ./spark-submit
+  654  kubectl create serviceaccount spark
+  655  kubectl create clusterrolebinding spark-role --clusterrole=edit --serviceaccount=default:spark --namespace=default
+  656  kubectl proxy
+  657  python3 -m venv env
+  658  source env/bin/activate
+  659  pip install pyspark
+  660  spark-submit main.py
+  661  k9s
+  662  cd spark-3.5.1-bin-hadoop3/bin/
+  663  export SPARK_HOME=/home/pi/spark-3.5.1-bin-hadoop3
+  664  ./spark-submit --deploy-mode cluster --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark --conf spark.kubernetes.container.image.pullPolicy=Always --conf spark.hadoop.fs.s3a.path.style.access=True --conf spark.hadoop.fs.s3a.access.key=WKpCKYo5nx3n9hnUzlYs --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.hadoop.fs.s3a.secret.key=BAyGGngWAu9zGytn6W0HR4seOoX5GDVQ1v3T83c1 --conf spark.hadoop.fs.s3a.path.style.access=True --conf spark.hadoop.fs.s3a.connection.ssl.enabled=False --conf spark.hadoop.fs.s3a.endpoint=http://s3a-hl.s3a:9000 --conf spark.kubernetes.container.image=arunsrajan/spark:3.5.1 --conf spark.master=k8s://https://127.0.0.1:6443 local:///app/main.py
+  665  java -version
+  666  clear
+  667  java -version
+  668  ./spark-submit --deploy-mode cluster --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark --conf spark.kubernetes.container.image.pullPolicy=Always --conf spark.hadoop.fs.s3a.path.style.access=True --conf spark.hadoop.fs.s3a.access.key=WKpCKYo5nx3n9hnUzlYs --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.hadoop.fs.s3a.secret.key=BAyGGngWAu9zGytn6W0HR4seOoX5GDVQ1v3T83c1 --conf spark.hadoop.fs.s3a.path.style.access=True --conf spark.hadoop.fs.s3a.connection.ssl.enabled=False --conf spark.hadoop.fs.s3a.endpoint=http://s3a-hl.s3a:9000 --conf spark.kubernetes.container.image=arunsrajan/spark:3.5.1 --conf spark.master=k8s://https://127.0.0.1:6443 local:///app/main.py
+  669  clear
+  670  ./spark-submit --deploy-mode cluster --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark --conf spark.kubernetes.container.image.pullPolicy=Always --conf spark.hadoop.fs.s3a.path.style.access=True --conf spark.hadoop.fs.s3a.access.key=WKpCKYo5nx3n9hnUzlYs --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.hadoop.fs.s3a.secret.key=BAyGGngWAu9zGytn6W0HR4seOoX5GDVQ1v3T83c1 --conf spark.hadoop.fs.s3a.path.style.access=True --conf spark.hadoop.fs.s3a.connection.ssl.enabled=False --conf spark.hadoop.fs.s3a.endpoint=http://s3a-hl.s3a:9000 --conf spark.kubernetes.container.image=arunsrajan/spark:3.5.1 --conf spark.master=k8s://https://127.0.0.1:6443 local:///app/main.py
+  671  docker images
+  672  cd ..
+  673  cd .
+  674  ls
+  675  cd ..
+  676  ls
+  677  cd minio
+  678  ls
+  679  docker pull --platform linux/arm64 apache/spark:3.5.1-scala2.12-java11-python3-r-ubuntu
+  680  ls
+  681  docker build -t sonusukralia/spark:1.0 .
+  682  ls
+  683  docker build -t sonusukralia/spark:1.0 .
+  684  docker push sonusukralia/spark:1.0
+  685  cd ..
+  686  cd spark-3.5.1-bin-hadoop3/
+  687  cd bin
+  688  ./spark-submit --deploy-mode cluster --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark --conf spark.kubernetes.container.image.pullPolicy=Always --conf spark.hadoop.fs.s3a.path.style.access=True --conf spark.hadoop.fs.s3a.access.key=WKpCKYo5nx3n9hnUzlYs --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.hadoop.fs.s3a.secret.key=BAyGGngWAu9zGytn6W0HR4seOoX5GDVQ1v3T83c1 --conf spark.hadoop.fs.s3a.path.style.access=True --conf spark.hadoop.fs.s3a.connection.ssl.enabled=False --conf spark.hadoop.fs.s3a.endpoint=http://s3a-hl.s3a:9000 --conf spark.kubernetes.container.image=sonusukralia/spark:1.0 --conf spark.master=k8s://https://127.0.0.1:6443 local:///app/main.py
+  689  ubectl create clusterrolebinding spark-role --clusterrole=edit --serviceaccount=default:spark --namespace=default
+  690  kubectl create clusterrolebinding spark-role --clusterrole=edit --serviceaccount=default:spark --namespace=default
+  691  ./spark-submit --deploy-mode cluster --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark --conf spark.kubernetes.container.image.pullPolicy=Always --conf spark.hadoop.fs.s3a.path.style.access=True --conf spark.hadoop.fs.s3a.access.key=WKpCKYo5nx3n9hnUzlYs --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.hadoop.fs.s3a.secret.key=BAyGGngWAu9zGytn6W0HR4seOoX5GDVQ1v3T83c1 --conf spark.hadoop.fs.s3a.path.style.access=True --conf spark.hadoop.fs.s3a.connection.ssl.enabled=False --conf spark.hadoop.fs.s3a.endpoint=http://s3a-hl.s3a:9000 --conf spark.kubernetes.container.image=sonusukralia/spark:1.0 --conf spark.master=k8s://https://127.0.0.1:6443 local:///app/main.py
+  692  ./spark-submit --deploy-mode cluster --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark --conf spark.kubernetes.container.image.pullPolicy=Always --conf spark.hadoop.fs.s3a.path.style.access=True --conf spark.hadoop.fs.s3a.access.key=WKpCKYo5nx3n9hnUzlYs --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.hadoop.fs.s3a.secret.key=BAyGGngWAu9zGytn6W0HR4seOoX5GDVQ1v3T83c1 --conf spark.hadoop.fs.s3a.path.style.access=True --conf spark.hadoop.fs.s3a.connection.ssl.enabled=False --conf spark.hadoop.fs.s3a.endpoint=http://s3a-hl.s3a:9000 --conf spark.kubernetes.container.image=sonusukralia/spark:1.1 --conf spark.master=k8s://https://127.0.0.1:6443 local:///app/main1.py
+  693  code .
+  694  docker ps
+  695  docker images
+  696  docker export sonusukralia/spark:1.0 -o spark.tar
+  697  docker image save sonusukralia/spark:1.0
+  698  docker image save sonusukralia/spark:1.0 -o sonuspark.tar
+  699  docker build -t sonusukralia/spark:1.1 .
+  700  docker push sonusukralia/spark:1.1
+  701  docker build -t sonusukralia/spark:1.1 .
+  702  docker push sonusukralia/spark:1.1
+  703  docker build -t sonusukralia/spark:1.1 .
+  704  docker push sonusukralia/spark:1.1
+  705  history > august9docker.txt
+  706  code .
+  707  history
+  708  history > history-backup
+  709  pwd
+  710  .bash_history > august.txt
+  711  /.bash_history > august.txt
+  712  ./bash_history > august.txt
+  713  ls
+  714  cat august
+  715  cat august.txt
+  716  history > sonuaugust.txt

@@ -1,0 +1,10 @@
+resourcesPreset: "small"
+  ## @param worker.resources Set container requests and limits for different resources like CPU or memory (essential for production workloads)
+  ## Example:
+resources:
+   requests:
+     cpu: 1
+     memory: 512Mi
+   limits:
+     cpu: 2
+     memory: 512Mi

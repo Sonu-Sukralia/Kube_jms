@@ -1,0 +1,38 @@
+apiVersion: sparkoperator.k8s.io/v1beta2
+kind: SparkApplication
+metadata:
+ name: spark-pi
+ namespace: spark-jobs
+spec:
+  type: Python
+  mode: cluster
+  image: sonusukralia/spark:1.1
+  imagePullPolicy: Always
+  mainApplicationFile: "local:///app/main1.py"
+  sparkVersion: 3.5.1
+  restartPolicy:
+    type: OnFailure
+    onFailureRetries: 3
+    onFailureRetryInterval: 10
+    onSubmissionFailureRetries: 5
+    onSubmissionFailureRetryInterval: 20
+  driver:
+    labels:
+      version: 3.5.1
+    cores: 1
+    coreLimit: 1200m
+    memory: 512m
+    serviceAccount: spark
+  executor:
+    labels:
+      version: 3.5.1
+    instances: 1
+    cores: 1
+    coreLimit: 1200m
+    memory: 512m
+  deps:
+    jars:
+      - https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.3.2/hadoop-aws-3.3.2.jar
+      - https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.12.256/aws-java-sdk-bundle-1.12.256.jar
+
+

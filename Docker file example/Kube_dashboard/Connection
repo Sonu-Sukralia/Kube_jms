@@ -1,0 +1,38 @@
+kubernetes Dashboard
+eyJhbGciOiJSUzI1NiIsImtpZCI6Imc3dEc1anQxbXAzRHJiZTZSX1NTSHl6RTQ1dTEyN2pMd25fQXpXdWd4LXcifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJhZG1pbi11c2VyIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6ImFkbWluLXVzZXIiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiJiN2M0ZjU1Ny0wNjhlLTQ0ZTctYmZkYi1hOGY0Y2VmMWE0ZWEiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZXJuZXRlcy1kYXNoYm9hcmQ6YWRtaW4tdXNlciJ9.6tq2Kjr1I3uOl5MYUmHri_9MSa9RBoA1kb7uZAvadD2_ydic6wzE4qcIWpQCqLnbw0r1-Dq6Aqab7ap9QEN-bdbPMcTocQtI6XeqfIgeDrNdMr8Ry_-9SnmqRBlYzWdXlugZxLqtJ0DfgTJC9_z_xf-eBLv_9GOQD1iF--nEISDrcmqE736mjMabeAQcIPa70UuxLn7ywOhC-vmCIn7pjvU2BmxxWQZC-AsuB1Q2eP4exRlnxn5oonxDyVUDMTtlJ4DOU3azfeq8KHKWV3UDw7s47jxRPBlJAYs3pRESWJm8pjGSUdwXOlQckf3tAthhZBnxG8Y3srI4K-esz016fw
+
+
+Minio
+Tenet
+eyJhbGciOiJSUzI1NiIsImtpZCI6Imc3dEc1anQxbXAzRHJiZTZSX1NTSHl6RTQ1dTEyN2pMd25fQXpXdWd4LXcifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJtaW5pby1vcGVyYXRvciIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJjb25zb2xlLXNhLXNlY3JldCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJjb25zb2xlLXNhIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiYjQyOGE0NWEtYzk3NC00YjJkLWJlOWYtN2UwMDI1NTMxNzQ2Iiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50Om1pbmlvLW9wZXJhdG9yOmNvbnNvbGUtc2EifQ.gGYMfZ9Yd6lZRAbkZ7vprE11x_sH3Nifymfqar6Qs64ZODHqUV6iSPHexgzj0BnA1KMIN7-VXNs5fzmVUK2pwxOgUeC1MkhVPo7-o5bGMXYOuuHoQv4R_V6p5p1gYaWF3doTL-qFhqg7ExMeaTCPcdwi8sIFhJ9TPtZETx2V27uX5ASiUqr22yPwxzn8kB3g6zQr0O03VjAL0nNsU0DFbbUdtfRGo8vesjhPccrhjk_aKd818kzWX6g3IWEpcaLyEGklaf0dPjpt_SXobp_1bQ35s9wknt-4GCNpoHmUPfeHTrPAjNEfeEhVBWDEBol-Su1tpb9DWk-2iySKd5KO5Q
+
+
+
+Minio Bucket
+export MINIO_BROWSER="on"
+export MINIO_ROOT_USER="5ASO0ACPBFBEH0S4"
+export MINIO_ROOT_PASSWORD="H1FYGIG5J1XQ4WMRN4A1XD1SKYZYSS3C"
+
+
+
+
+
+
+
+
+
+
+
+                                                                          │ 
+ │ Newer kernel available                                                    │ 
+ │                                                                           │ 
+ │ The currently running kernel version is 6.6.31+rpt-rpi-2712 which is not  │ 
+ │ the expected kernel version 6.6.31+rpt-rpi-v8.                            │ 
+ │                                                                           │ 
+ │ Restarting the system to load the new kernel will not be handled          │ 
+ │ automatically, so you should consider rebooting.
+
+
+
+
+

@@ -1,0 +1,13 @@
+fernetKey: c1Z5MmVzNE9aUnU1ZHh5ekJQYWRmNVZIcThhY3VYZHk=
+webserverSecretKey: c1Z5MmVzNE9aUnU1ZHh5ekJQYWRmNVZIcThhY3VYZHk=
+executor: CeleryExecutor
+
+dags:
+  gitSync:
+    enabled: true
+    repo: https://github.com/Sonu-Sukralia/airdags.git
+    branch: main
+    rev: HEAD
+    depth: 1
+    maxFailures: 0
+    subPath: "dags"

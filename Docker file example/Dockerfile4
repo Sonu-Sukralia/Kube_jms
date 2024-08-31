@@ -1,0 +1,11 @@
+FROM jupyter/pyspark-notebook
+
+USER root
+
+# Install any additional dependencies you need
+RUN apt-get update && apt-get install -y \
+    vim \
+    less \
+    wget
+
+USER $NB_UID

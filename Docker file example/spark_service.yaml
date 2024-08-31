@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: spark-master
+  namespace: default  # Use the appropriate namespace
+spec:
+  ports:
+    - port: 7077
+      targetPort: 7077
+      protocol: TCP
+  selector:
+    app: spark
+    component: master  # Ensure this matches your Spark master pod labels
+  type: LoadBalancer  # Or NodePort if you don't have a LoadBalancer

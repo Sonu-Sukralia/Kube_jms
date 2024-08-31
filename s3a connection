@@ -1,0 +1,670 @@
+1. http://127.0.0.1:8888/lab/tree/Untitled1.ipynb
+2. http://localhost:8081/        #spark/172.19.0.3:7077
+
+3.
+docker exec -it 938ad8224ff0 /bin/bash
+docker cp taxi.csv 938ad8224ff0:/opt/file/taxi.csv
+4.
+docker exec -it ade59c27209e /bin/bash
+docker cp taxi.csv ade59c27209e:/opt/file/taxi.csv
+5.
+docker exec -it -u root 7015681b2979 /bin/bas
+docker cp taxi.csv 7015681b2979:/opt/file/taxi.csv
+
+
+from pyspark.sql import SparkSession
+
+# Create a Spark session
+spark = SparkSession.builder.appName("sk")\
+            .master("spark://193193aba901:7077").getOrCreate()
+
+data1 = spark.read.csv("/opt/file/taxi.csv", header=True)
+data1.limit(3).show()
+
+
+
+docker cp taxi.csv 7015681b2979:/opt/file/taxi.csv
+docker cp taxi.csv jupyter:/opt/file/taxi.csv
+docker-compose up --scale spark-worker=2
+
+pi@raspberry:~/minio $ pwd
+/home/pi/minio
+pi@raspberry:~/minio $ docker-compose up --scale spark-worker=2
+
+
+
+
+
+
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col
+
+spark = SparkSession.builder \
+            .appName("ski") \
+            .master("spark://spark-release-master-0.spark-release-headless.default.svc.cluster.local:7077")\
+            .getOrCreate()
+
+
+
+from pyspark.sql.functions import col
+
+data = [("John", 25), ("Alice", 30), ("Bob", 35)]
+
+df = spark.createDataFrame(data, ["Name", "Age"])
+
+df.show()
+
+filtered_df = df.filter(col("Age") > 30)
+
+filtered_df.show()
+
+spark.stop()
+
+
+
+
+import os
+import socket
+os.environ['PYSPARK_SUBMIT_ARGS']='pyspark-shell'
+os.environ['PYSPARK_PYTHON']='/opt/bitnami/python/bin/python'
+os.environ['PYSPARK_DRIVER_PYTHON']='/opt/bitnami/python/bin/python'
+
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder.master("spark://spark-release-master-svc:7077")\
+            .appName("sk").config("spark.driver.cores","1").config("spark.executor.cores","1")\
+            .config("spark.executor.instances","1")\
+            .config("spark.authenticate","false")\
+            .config("spark.acls.enable","true")\
+            .config("spark.admin.acls","None")\
+            .config("spark.admin.acls.groups","None")\
+            .config("spark.modify.acls","None")\
+            .config("spark.modify.acls.groups","None")\
+            .config("spark.ui.view.acls","None")\
+            .config("spark.ui.view.acls.groups","None")\
+            .config("spark.hadoop.security.authentication","simple")\
+            .getOrCreate()
+
+
+data = [
+    (1, "Alice", 30),
+    (2, "Bob", 25),
+    (3, "Catherine", 35)
+]
+
+# Create DataFrame
+df = spark.createDataFrame(data)
+
+# Show DataFrame
+df.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Minio login 
+Access key : BayRWhadw0165YK7
+Secret key : 8AN7KW1GT8OAuzB1CsHTvviuvnujZomF
+https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk18on/1.78
+https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk18on/1.78
+
+bucket login
+Access key : WKpCKYo5nx3n9hnUzlYs
+Secret key : BAyGGngWAu9zGytn6W0HR4seOoX5GDVQ1v3T83c1
+
+l9clBhS80ZudADoDQnSS
+5mU3bwzCDejg8aR3qgqwK0eVEsk8gUyxW0p0Cz6h
+
+
+kubectl create secret generic minio-secret --from-literal=AWS_ACCESS_KEY_ID=hsEfEUIK19N4KYgvw1lx --from-literal=AWS_SECRET_ACCESS_KEY=T21pYUJ07SOLJBlh89tgKviHRfYDgh55C76I0dke --from-literal=ENDPOINT=http://s3a-hl.s3a:9000 --from-literal=AWS_REGION=us-east-1 --namespace spark-operator
+
+
+curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
+kubectl create serviceaccount spark
+kubectl create clusterrolebinding spark-role --clusterrole=edit --serviceaccount=default:spark --namespace=default
+
+./spark-submit --deploy-mode cluster --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark --conf spark.kubernetes.container.image.pullPolicy=Always --conf spark.hadoop.fs.s3a.path.style.access=True --conf spark.hadoop.fs.s3a.access.key=l9clBhS80ZudADoDQnSS --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.hadoop.fs.s3a.secret.key=5mU3bwzCDejg8aR3qgqwK0eVEsk8gUyxW0p0Cz6h --conf spark.hadoop.fs.s3a.path.style.access=True --conf spark.hadoop.fs.s3a.connection.ssl.enabled=False --conf spark.hadoop.fs.s3a.endpoint=http://s3a-hl.s3a:9000 --conf spark.kubernetes.container.image=sonusukralia/spark:1.1 --conf spark.master=k8s://https://127.0.0.1:6443 local:///app/main1.py
+
+./spark-submit --deploy-mode cluster --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark --conf spark.kubernetes.container.image.pullPolicy=Always --conf spark.hadoop.fs.s3a.path.style.access=True --conf spark.hadoop.fs.s3a.access.key=WKpCKYo5nx3n9hnUzlYs --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.hadoop.fs.s3a.secret.key=BAyGGngWAu9zGytn6W0HR4seOoX5GDVQ1v3T83c1 --conf spark.hadoop.fs.s3a.path.style.access=True --conf spark.hadoop.fs.s3a.connection.ssl.enabled=False --conf spark.hadoop.fs.s3a.endpoint=http://s3a-hl.s3a:9000 --conf spark.kubernetes.container.image=sonusukralia/spark:1.1 --conf spark.master=k8s://https://127.0.0.1:6443 local:///app/main1.py
+
+
+
+
+docker pull --platform linux/arm64 apache/spark:3.5.1-scala2.12-java11-python3-r-ubuntu
+docker build -t sonusukralia/spark:1.0 .
+docker push sonusukralia/spark:1.0
+docker build -t sonusukralia/spark:1.1 .
+docker push sonusukralia/spark:1.1
+
+docker image save sonusukralia/spark:1.0 -o sonuspark.tar
+
+docker rmi -f $(docker images -f "dangling=true" -q)
+
+docker run -it sonusukralia/spark:1.1 bash
+
+
+
+
+Create a Kubectl config file
+mkdir ~/.kube
+Generate kubeconfig for your clusters
+sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config && sudo chown $USER ~/.kube/config
+Copy and export the kubeconfig setting
+sudo chmod 600 ~/.kube/config && export KUBECONFIG=~/.kube/config
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pi@raspberry:~ $ helm install kayvan-release bitnami/spark --version 8.7.2
+NAME: kayvan-release
+LAST DEPLOYED: Mon Aug 12 00:11:14 2024
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+CHART NAME: spark
+CHART VERSION: 8.7.2
+APP VERSION: 3.5.0
+
+** Please be patient while the chart is being deployed **
+
+1. Get the Spark master WebUI URL by running these commands:
+
+  kubectl port-forward --namespace default svc/kayvan-release-spark-master-svc 80:80
+  echo "Visit http://127.0.0.1:80 to use your application"
+
+2. Submit an application to the cluster:
+
+  To submit an application to the cluster the spark-submit script must be used. That script can be
+  obtained at https://github.com/apache/spark/tree/master/bin. Also you can use kubectl run.
+
+  export EXAMPLE_JAR=$(kubectl exec -ti --namespace default kayvan-release-spark-worker-0 -- find examples/jars/ -name 'spark-example*\.jar' | tr -d '\r')
+
+  kubectl exec -ti --namespace default kayvan-release-spark-worker-0 -- spark-submit --master spark://kayvan-release-spark-master-svc:7077 \
+    --class org.apache.spark.examples.SparkPi \
+    $EXAMPLE_JAR 5
+
+** IMPORTANT: When submit an application from outside the cluster service type should be set to the NodePort or LoadBalancer. **
+
+** IMPORTANT: When submit an application the --master parameter should be set to the service IP, if not, the application will not resolve the master. **
+
+
+
+
+WARNING: There are "resources" sections in the chart not set. Using "resourcesPreset" is not recommended for production. For production installations, please set the following values according to your workload needs:
+  - master.resources
+  - worker.resources
++info https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+
+
+
+
+
+helm show values bitnami/spark  > values11.yaml
+helm upgrade --install kayvan-release bitnami/spark --namespace default --create-namespace -f values2.yaml
+or
+helm upgrade --install kayvan-release bitnami/spark --version 8.7.2 --namespace default --create-namespace -f values1.yaml
+
+kubectl port-forward --namespace default svc/kayvan-release-spark-master-svc 80:80
+
+
+
+
+
+
+
+
+
+
+
+
+
+from pyspark.sql import SparkSession
+# Create a Spark session
+spark = SparkSession.builder.appName("sk")\
+            .master("spark://8ba93219ea3c:7077").getOrCreate()
+
+
+
+data1 = spark.read.csv("/opt/file/taxidata.csv", header=True)
+data1.limit(3).show()
+
+
+from pyspark.sql import SparkSession
+#TSQ0lvxjWA6Y3S4bE6G5  BAD1QKX0QDIS1SO2
+#QYhj55Ax47WD0y3I97BvKI7E5tkd6j3QEKnKsmeg  5QV2JFP3ZZHO0EYHGJ5KPB2AA4TMCU0G
+#http://s3a-hl.s3a:9000
+minio_endpoint = "http://minio:9000"  # Ensure this matches your setup
+minio_access_key = "aKCDbDVerUocwEMNEWWT"
+minio_secret_key = "H5uAMMSpZNuVBDvwEOABMNQTEWeU25gROnRoDALT"
+minio_bucket = "test"
+
+spark = SparkSession.builder \
+    .appName("MinIOs") \
+    .config('spark.master','spark://8ba93219ea3c:7077')\
+    .config("spark.jars.packages", "org.apache.hadoop:hadoop-aws:3.3.4") \
+    .config("spark.hadoop.fs.s3a.endpoint", minio_endpoint) \
+    .config("spark.hadoop.fs.s3a.access.key", minio_access_key) \
+    .config("spark.hadoop.fs.s3a.secret.key", minio_secret_key) \
+    .config("spark.hadoop.fs.s3a.impl", "org.apache.hadoop.fs.s3a.S3AFileSystem") \
+    .config("spark.hadoop.fs.s3a.path.style.access", "true") \
+    .config("spark.hadoop.fs.s3a.connection.ssl.enabled", "false") \
+    .getOrCreate()
+
+
+dataframe = spark.read.json('s3a://test/orders.json')
+
+average = dataframe.agg({'amount':'avg'})
+
+average.write.format("csv").option("header", "true").save("s3a://test/json/")
+
+average.show()
+
+
+df = spark.read.csv("s3a://test/taxi.csv")
+df.show()
+spark.stop()
+
+
+
+
+
+
+temp WuADyieDfTEYcPtN0DtK  TcEIzOcaZmfXB7JizkD1fiDu0Z3wN5jYZXEufJ1R
+
+
+v-
+tA8YcAzS5HgwdmZ2
+Wom4yDgcKcBc0ar3jjXsIWX5MVu7v0Ak
+s3a-hl.data-platform:9000  s3a-hl.data-platform:9000
+d-
+RDRV3SL3MJ03EE1V
+DSTDWQ2V5FNTOZOSKKVDXD4DSX0H2FYQ
+[
+a- D7wE4fYTCf5D2FAPRIuO
+ak- 7oDFMtaieNlvPec6K0SHFTpmYY9F7GRLSEQq2KxO
+]
+data-platform
+mBU6VKGl2vbsi7OpvS29
+9omqWNdyorETyiXvnMZYjbI1msToAHb54asr9bxZ
+
+from pyspark.sql import SparkSession
+
+#TSQ0lvxjWA6Y3S4bE6G5  BAD1QKX0QDIS1SO2
+#QYhj55Ax47WD0y3I97BvKI7E5tkd6j3QEKnKsmeg  5QV2JFP3ZZHO0EYHGJ5KPB2AA4TMCU0G
+#http://s3a-hl.data-platform:9000
+minio_endpoint = "http://s3a-hl.data-platform:9000"  # Ensure this matches your setup
+minio_access_key = "qUqE7TK7Xhkw9hS8DS4b"
+minio_secret_key = "MeJYIY6s4X8P0SjYF7AsFkgf9AePLu837gndpAKS"
+minio_bucket = "test"
+
+spark = SparkSession.builder \
+    .appName("MinIOs") \
+    .config('spark.master','local')\
+    .config("spark.jars.packages", "org.apache.hadoop:hadoop-aws:3.3.4") \
+    .config("spark.hadoop.fs.s3a.endpoint", minio_endpoint) \
+    .config("spark.hadoop.fs.s3a.access.key", minio_access_key) \
+    .config("spark.hadoop.fs.s3a.secret.key", minio_secret_key) \
+    .config("spark.hadoop.fs.s3a.impl", "org.apache.hadoop.fs.s3a.S3AFileSystem") \
+    .config("spark.hadoop.fs.s3a.path.style.access", "true") \
+    .config("spark.hadoop.fs.s3a.connection.ssl.enabled", "false") \
+    .getOrCreate()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+from pyspark.sql import SparkSession
+
+#TSQ0lvxjWA6Y3S4bE6G5  BAD1QKX0QDIS1SO2
+#QYhj55Ax47WD0y3I97BvKI7E5tkd6j3QEKnKsmeg  5QV2JFP3ZZHO0EYHGJ5KPB2AA4TMCU0G
+#http://s3a-hl.data-platform:9000
+minio_endpoint = "http://minio-service.data-platform:9000"  # Ensure this matches your setup
+minio_access_key = "qUqE7TK7Xhkw9hS8DS4b"
+minio_secret_key = "MeJYIY6s4X8P0SjYF7AsFkgf9AePLu837gndpAKS"
+minio_bucket = "test"
+
+spark = SparkSession.builder \
+    .appName("MinIOs") \
+    .config('spark.master','local')\
+    .config("spark.jars.packages", "org.apache.hadoop:hadoop-aws:3.3.4") \
+    .config("spark.hadoop.fs.s3a.endpoint", minio_endpoint) \
+    .config("spark.hadoop.fs.s3a.access.key", minio_access_key) \
+    .config("spark.hadoop.fs.s3a.secret.key", minio_secret_key) \
+    .config("spark.hadoop.fs.s3a.impl", "org.apache.hadoop.fs.s3a.S3AFileSystem") \
+    .config("spark.hadoop.fs.s3a.path.style.access", "true") \
+    .config("spark.hadoop.fs.s3a.connection.ssl.enabled", "false") \
+    .getOrCreate()
+
+
+dataframe = spark.read.json('s3a://test/orders.json')
+
+average = dataframe.agg({'amount':'avg'})
+
+#average.write.format("csv").option("header", "true").save("s3a://test/json/")
+
+average.show()
+
+
+
+
+
+
+spark/172.19.0.3:7077
+helm upgrade --install spark-release bitnami-repo/spark --namespace default -f vspark1.yaml
+
+
+docker exec -it 7015681b2979 /bin/bash
+
+docker exec -it 938ad8224ff0 /bin/bash
+docker exec -it ade59c27209e /bin/bash
+docker exec -it -u root 7015681b2979 /bin/bas
+http://localhost:8100/access-keys
+
+from pyspark.sql import SparkSession
+
+# Create a Spark session
+spark = SparkSession.builder.appName("sk")\
+            .master("spark://193193aba901:7077").getOrCreate()
+
+data1 = spark.read.csv("/opt/file/taxi.csv", header=True)
+data1.limit(3).show()
+
+
+
+docker cp taxi.csv 7015681b2979:/opt/file/taxi.csv
+docker cp taxi.csv jupyter:/opt/file/taxi.csv
+docker-compose up --scale spark-worker=2
+
+pi@raspberry:~/minio $ pwd
+/home/pi/minio
+pi@raspberry:~/minio $ docker-compose up --scale spark-worker=2
+
+spark://8ba93219ea3c:7077
+
+sonusukralia/sparkp                               3.5                                       54d69a9c76f1   2 days ago      1.58GB
+sonusukralia/sparkcg                              3.5                                       0587d5793896   2 days ago      2.03GB
+sonusukralia/sparkd                               3.5                                       53ec21ac8e6e   5 days ago      1.73GB
+sonusukralia/jupyterd                             3.5                                       66a4718cc714   5 days ago      6.7GB
+sonusukralia/miniod                               3.5                                       01c2ce3726af   5 days ago      291MB
+sonusukralia/spark                                3.5                                       87e9158c647b   5 days ago      1.73GB
+bitnami/minio                                     latest                                    f3f2b5a1264c   2 weeks ago     291MB
+docker.arvancloud.ir/bitnami/spark                3.5.0                                     de9ced01ed7b   6 months ago    1.73GB
+docker.arvancloud.ir/jupyter/all-spark-notebook   latest                                    4dec64d08d4e   10 months ago   5.45GB
+apache/spark 
+
+
+
+
+
+
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col
+
+spark = SparkSession.builder \
+            .appName("ski") \
+            .master("spark://spark-release-master-0.spark-release-headless.default.svc.cluster.local:7077")\
+            .getOrCreate()
+
+
+
+from pyspark.sql.functions import col
+
+data = [("John", 25), ("Alice", 30), ("Bob", 35)]
+
+df = spark.createDataFrame(data, ["Name", "Age"])
+
+df.show()
+
+filtered_df = df.filter(col("Age") > 30)
+
+filtered_df.show()
+
+spark.stop()
+
+
+
+
+import os
+import socket
+os.environ['PYSPARK_SUBMIT_ARGS']='pyspark-shell'
+os.environ['PYSPARK_PYTHON']='/opt/bitnami/python/bin/python'
+os.environ['PYSPARK_DRIVER_PYTHON']='/opt/bitnami/python/bin/python'
+
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder.master("spark://spark-release-master-svc:7077")\
+            .appName("sk").config("spark.driver.cores","1").config("spark.executor.cores","1")\
+            .config("spark.executor.instances","1")\
+            .config("spark.authenticate","false")\
+            .config("spark.acls.enable","true")\
+            .config("spark.admin.acls","None")\
+            .config("spark.admin.acls.groups","None")\
+            .config("spark.modify.acls","None")\
+            .config("spark.modify.acls.groups","None")\
+            .config("spark.ui.view.acls","None")\
+            .config("spark.ui.view.acls.groups","None")\
+            .config("spark.hadoop.security.authentication","simple")\
+            .getOrCreate()
+
+
+data = [
+    (1, "Alice", 30),
+    (2, "Bob", 25),
+    (3, "Catherine", 35)
+]
+
+# Create DataFrame
+df = spark.createDataFrame(data)
+
+# Show DataFrame
+df.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Minio login 
+Access key : BayRWhadw0165YK7
+Secret key : 8AN7KW1GT8OAuzB1CsHTvviuvnujZomF
+https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk18on/1.78
+https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk18on/1.78
+
+bucket login
+Access key : WKpCKYo5nx3n9hnUzlYs
+Secret key : BAyGGngWAu9zGytn6W0HR4seOoX5GDVQ1v3T83c1
+
+l9clBhS80ZudADoDQnSS
+5mU3bwzCDejg8aR3qgqwK0eVEsk8gUyxW0p0Cz6h
+
+
+kubectl create secret generic minio-secret --from-literal=AWS_ACCESS_KEY_ID=hsEfEUIK19N4KYgvw1lx --from-literal=AWS_SECRET_ACCESS_KEY=T21pYUJ07SOLJBlh89tgKviHRfYDgh55C76I0dke --from-literal=ENDPOINT=http://s3a-hl.s3a:9000 --from-literal=AWS_REGION=us-east-1 --namespace spark-operator
+
+
+curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
+kubectl create serviceaccount spark
+kubectl create clusterrolebinding spark-role --clusterrole=edit --serviceaccount=default:spark --namespace=default
+
+./spark-submit --deploy-mode cluster --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark --conf spark.kubernetes.container.image.pullPolicy=Always --conf spark.hadoop.fs.s3a.path.style.access=True --conf spark.hadoop.fs.s3a.access.key=l9clBhS80ZudADoDQnSS --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.hadoop.fs.s3a.secret.key=5mU3bwzCDejg8aR3qgqwK0eVEsk8gUyxW0p0Cz6h --conf spark.hadoop.fs.s3a.path.style.access=True --conf spark.hadoop.fs.s3a.connection.ssl.enabled=False --conf spark.hadoop.fs.s3a.endpoint=http://s3a-hl.s3a:9000 --conf spark.kubernetes.container.image=sonusukralia/spark:1.1 --conf spark.master=k8s://https://127.0.0.1:6443 local:///app/main1.py
+
+./spark-submit --deploy-mode cluster --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark --conf spark.kubernetes.container.image.pullPolicy=Always --conf spark.hadoop.fs.s3a.path.style.access=True --conf spark.hadoop.fs.s3a.access.key=WKpCKYo5nx3n9hnUzlYs --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.hadoop.fs.s3a.secret.key=BAyGGngWAu9zGytn6W0HR4seOoX5GDVQ1v3T83c1 --conf spark.hadoop.fs.s3a.path.style.access=True --conf spark.hadoop.fs.s3a.connection.ssl.enabled=False --conf spark.hadoop.fs.s3a.endpoint=http://s3a-hl.s3a:9000 --conf spark.kubernetes.container.image=sonusukralia/spark:1.1 --conf spark.master=k8s://https://127.0.0.1:6443 local:///app/main1.py
+
+
+
+
+docker pull --platform linux/arm64 apache/spark:3.5.1-scala2.12-java11-python3-r-ubuntu
+docker build -t sonusukralia/spark:1.0 .
+docker push sonusukralia/spark:1.0
+docker build -t sonusukralia/spark:1.1 .
+docker push sonusukralia/spark:1.1
+
+docker image save sonusukralia/spark:1.0 -o sonuspark.tar
+
+docker rmi -f $(docker images -f "dangling=true" -q)
+
+docker run -it sonusukralia/spark:1.1 bash
+
+
+
+
+Create a Kubectl config file
+mkdir ~/.kube
+Generate kubeconfig for your clusters
+sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config && sudo chown $USER ~/.kube/config
+Copy and export the kubeconfig setting
+sudo chmod 600 ~/.kube/config && export KUBECONFIG=~/.kube/config
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pi@raspberry:~ $ helm install kayvan-release bitnami/spark --version 8.7.2
+NAME: kayvan-release
+LAST DEPLOYED: Mon Aug 12 00:11:14 2024
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+CHART NAME: spark
+CHART VERSION: 8.7.2
+APP VERSION: 3.5.0
+
+** Please be patient while the chart is being deployed **
+
+1. Get the Spark master WebUI URL by running these commands:
+
+  kubectl port-forward --namespace default svc/kayvan-release-spark-master-svc 80:80
+  echo "Visit http://127.0.0.1:80 to use your application"
+
+2. Submit an application to the cluster:
+
+  To submit an application to the cluster the spark-submit script must be used. That script can be
+  obtained at https://github.com/apache/spark/tree/master/bin. Also you can use kubectl run.
+
+  export EXAMPLE_JAR=$(kubectl exec -ti --namespace default kayvan-release-spark-worker-0 -- find examples/jars/ -name 'spark-example*\.jar' | tr -d '\r')
+
+  kubectl exec -ti --namespace default kayvan-release-spark-worker-0 -- spark-submit --master spark://kayvan-release-spark-master-svc:7077 \
+    --class org.apache.spark.examples.SparkPi \
+    $EXAMPLE_JAR 5
+
+** IMPORTANT: When submit an application from outside the cluster service type should be set to the NodePort or LoadBalancer. **
+
+** IMPORTANT: When submit an application the --master parameter should be set to the service IP, if not, the application will not resolve the master. **
+
+
+
+
+WARNING: There are "resources" sections in the chart not set. Using "resourcesPreset" is not recommended for production. For production installations, please set the following values according to your workload needs:
+  - master.resources
+  - worker.resources
++info https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+
+
+
+
+
+helm show values bitnami/spark  > values11.yaml
+helm upgrade --install kayvan-release bitnami/spark --namespace default --create-namespace -f values2.yaml
+or
+helm upgrade --install kayvan-release bitnami/spark --version 8.7.2 --namespace default --create-namespace -f values1.yaml
+
+kubectl port-forward --namespace default svc/kayvan-release-spark-master-svc 80:80
+
+
+helm upgrade --install spark-release bitnami-repo/spark --namespace default -f vspark111.yaml
+
+
+kubectl delete pod jupiter-spark-7469949554-dvlmh -n data-platform --grace-period 0 --force
