@@ -1,3 +1,7 @@
+https://hub.docker.com/repository/docker/sonusukralia/miniod/general
+https://hub.docker.com/repository/docker/sonusukralia/jupyterd/general
+https://hub.docker.com/repository/docker/sonusukralia/sparkd/general
+
 1. docker pull sonusukralia/miniod:3.5
 2. docker run --hostname minio -d --name minio -p 8099:9000 -p 8100:9001 -e MINIO_ROOT_USER=minio -e MINIO_ROOT_PASSWORD=minio123 --network new_spark-network sonusukralia/miniod:3.5
 
