@@ -2,6 +2,16 @@ https://hub.docker.com/repository/docker/sonusukralia/miniod/general
 https://hub.docker.com/repository/docker/sonusukralia/jupyterd/general
 https://hub.docker.com/repository/docker/sonusukralia/sparkd/general
 
+Docker imagges : 1. sonusukralia/miniod:3.5
+    Used         2. sonusukralia/sparkd:3.5
+ In    Project   3. sonusukralia/jupyterd:3.5
+
+Offical images
+1. bitnami/minio                                     latest    60edf986514c   42 hours ago    291MB
+2. docker.arvancloud.ir/bitnami/spark:3.5.0          3.5.0     de9ced01ed7b   6 months ago    1.73GB
+3. docker.arvancloud.ir/jupyter/all-spark-notebook   latest    4dec64d08d4e   10 months ago   5.45GB
+
+
 1. docker pull sonusukralia/miniod:3.5
 2. docker run --hostname minio -d --name minio -p 8099:9000 -p 8100:9001 -e MINIO_ROOT_USER=minio -e MINIO_ROOT_PASSWORD=minio123 --network new_spark-network sonusukralia/miniod:3.5
 
@@ -58,10 +68,20 @@ docker exec -it minio bash
  -- I have no name!@minio:/opt/bitnami/minio-client$ cat /etc/hosts
 }
 
+Notes:- 
+1. Copy csv file to inside jupyter container :
+   docker cp file.csv jupyter:/opt/file
+
+2. Copy csv file to inside spark worker container :
+   docker cp file.csv spark-worker-1:/opt/file
+   docker cp file.csv spark-worker-2:/opt/file
+
+3. How to access and copy csv file to jupyter and spark_worker node.
+   docker exec -it -u root 2d1a00984e34 /bin/bash
+   docker cp taxi.csv 629cb4d91dbe:/opt/file/taxi.csv
+   docker cp taxi.csv 2d1a00984e34:/opt/file/taxi.csv
 
 
 
 
-bitnami/minio                                     latest    60edf986514c   42 hours ago    291MB
-docker.arvancloud.ir/bitnami/spark                3.5.0     de9ced01ed7b   6 months ago    1.73GB
-docker.arvancloud.ir/jupyter/all-spark-notebook   latest    4dec64d08d4e   10 months ago   5.45GB
+
