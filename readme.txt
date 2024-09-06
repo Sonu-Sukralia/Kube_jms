@@ -5,6 +5,7 @@ http://127.0.0.1:8888/lab/workspaces/auto-i/tree/dc_jsmm.ipynb
 http://localhost:8100/browser/test/json%2F
 http://localhost:8081/
 
+kubectl delete pod jupiter-spark-5467ff7cd7-xsgp6 -n data-platform --grace-period 0 --force
 kubectl apply -f jupyter.yaml
 {
 apiVersion: apps/v1
