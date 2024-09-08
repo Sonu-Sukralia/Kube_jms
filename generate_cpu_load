@@ -42,7 +42,7 @@ if __name__=='__main__':
     else:
         print("Usage:\n python %s interval utilization"%__file__)
 
-} python generate_cpu_load.py 30 30
+} python generate_cpu_load.py 30(time) 30(cpu)
 
 Running the Script
 To run the script you need to pass the time interval you want to run the script for and the percentage of CPU utilization you want to achieve.
