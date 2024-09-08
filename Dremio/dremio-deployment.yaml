@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dremio
+  namespace: data-platform
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dremio
+  template:
+    metadata:
+      labels:
+        app: dremio
+    spec:
+      containers:
+        - name: dremio
+          image: dremio/dremio-oss:latest
+          ports:
+            - containerPort: 9047 # Dremio UI
+            - containerPort: 31010 # ODBC/JDBC client connections
+            - containerPort: 45678 # Internal Dremio communication
+          env:
+            - name: SERVICES_COORDINATOR_ENABLED
+              value: "true"
+            - name: SERVICES_EXECUTOR_ENABLED
+              value: "true"
+          volumeMounts:
+            - name: dremio-data
+              mountPath: /opt/dremio/data
+      volumes:
+        - name: dremio-data
+          emptyDir: {}
