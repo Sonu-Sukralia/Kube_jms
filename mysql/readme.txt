@@ -1,5 +1,11 @@
-For dremio 
+From Kubernetes Deshboard
+Go to Namespace : Data-platform
+Service > Services > mysql
+Endpoints
+Host            : Ports (Name, Port, Protocol)    : Node           : Ready
+10.42.3.56      : <unset>,3306,TCP                : nodeone        : true
 
+Connect to dremio :- 
 Host                   Port
 10.42.3.56             3306
 
@@ -8,7 +14,7 @@ Username               password
 root                   sonu@sonu
 
 
-Using Vs code
+Connection using Vs code :-
 SQLTools                    :- https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools
 SQLTools MySQL/MariaDB/TiDB :- https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql
 
