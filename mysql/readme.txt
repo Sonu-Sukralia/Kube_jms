@@ -1,3 +1,4 @@
+Kubernetes mysql : https://medium.com/@midejoseph24/deploying-mysql-on-kubernetes-16758a42a746
 From Kubernetes Deshboard
 Go to Namespace : Data-platform
 Service > Services > mysql
